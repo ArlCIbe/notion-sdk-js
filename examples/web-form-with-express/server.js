@@ -1,12 +1,14 @@
+//package & module imports
 require("dotenv").config()
+
 const express = require("express")
 const app = express()
 
-const { Client } = require("@notionhq/client")
-const notion = new Client({ auth: process.env.NOTION_KEY })
+const { Client } = require("@notionhq/client") // Notion's JS SDK
+const notion = new Client({ auth: process.env.NOTION_KEY }) // enables access to internal integrations
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static("public"))
+app.use(express.static("public")) // tells Express to send contents of public folder to browser
 app.use(express.json()) // for parsing application/json
 
 // http://expressjs.com/en/starter/basic-routing.html
